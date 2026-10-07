@@ -1,0 +1,9 @@
+{
+  "name": "LethalMimics",
+  "version_number": "1.0.1",
+  "website_url": "https://github.com/BKPatt/LethalMimics",
+  "description": "Enemies mimic your crew using short voice clips you record, playing them back as teammates who aren't there.",
+  "dependencies": [
+    "BepInEx-BepInExPack-5.4.2100"
+  ]
+}

@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- LethalMimics: the Thunderstore mod (recorded-clip mimics). Contains no AI; the optional AI add-on lives in addon/. -->
+  <Import Project="Game.props" />
+
+  <PropertyGroup>
+    <AssemblyName>LethalMimics</AssemblyName>
+    <RootNamespace>LethalMimics</RootNamespace>
+    <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="DissonanceVoip" HintPath="$(ManagedDir)\DissonanceVoip.dll" />
+    <Reference Include="Unity.Collections" HintPath="$(ManagedDir)\Unity.Collections.dll" />
+    <Reference Include="UnityEngine.AudioModule" HintPath="$(ManagedDir)\UnityEngine.AudioModule.dll" />
+    <Reference Include="UnityEngine.IMGUIModule" HintPath="$(ManagedDir)\UnityEngine.IMGUIModule.dll" />
+    <Reference Include="UnityEngine.TextRenderingModule" HintPath="$(ManagedDir)\UnityEngine.TextRenderingModule.dll" />
+    <Reference Include="UnityEngine.UI" HintPath="$(ManagedDir)\UnityEngine.UI.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="addon/**;dist/**;bin/**;obj/**" />
+    <None Remove="addon/**;dist/**" />
+  </ItemGroup>
+
+  <!-- Opt-in: dotnet build -p:Deploy=true copies the dll into the mod-manager profile for testing. -->
+  <Target Name="DeployToProfile" AfterTargets="Build" Condition="'$(Deploy)' == 'true' And '$(ProfileDir)' != ''">
+    <MakeDir Directories="$(ProfileDir)\BepInEx\plugins\LethalMimics" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ProfileDir)\BepInEx\plugins\LethalMimics" />
+  </Target>
+
+</Project>

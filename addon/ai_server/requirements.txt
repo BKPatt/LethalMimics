@@ -1,0 +1,8 @@
+# LethalAudio AI server (host only). PyTorch with CUDA is installed separately by setup.ps1.
+faster-qwen3-tts==0.5.4
+# 5.19 breaks qwen-tts-hf's Mimi codec config ("MimiConfig has no attribute rope_theta").
+transformers==5.15.1
+numpy
+soundfile
+librosa
+hf_xet

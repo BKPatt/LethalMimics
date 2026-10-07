@@ -1,0 +1,10 @@
+{
+  "name": "LethalMimicsAI",
+  "version_number": "1.0.0",
+  "website_url": "https://github.com/BKPatt/LethalMimics",
+  "description": "Experimental host-only add-on for LethalMimics: clones players' voices with local AI models and lets enemies speak and reply as them.",
+  "dependencies": [
+    "BepInEx-BepInExPack-5.4.2100",
+    "Deja-LethalMimics-1.0.1"
+  ]
+}
